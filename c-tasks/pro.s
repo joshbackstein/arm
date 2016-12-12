@@ -47,7 +47,6 @@ while: @ While loop (While R0 < R1)
 add r0, r0, #2
 cmp r0, r1
 blt while   @ if R0 < R1, b while
-beq for     @ else if R0 == R1, b for
 b   quit_gcc    @ else, b quit
 
 for: @ For loop
