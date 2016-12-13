@@ -14,7 +14,7 @@ num: .word 1
 .global main 
 
 main:
-push {lr}
+push {r4-r6, lr}
 ldr  r0, =hello
 bl   printf
 sub  sp, sp, #4
@@ -24,7 +24,7 @@ interact:
 ldr  r0, =prompt
 bl   printf
 
-@ Setup scanf
+@ Setup scanf to get number from user
 ldr  r0, =scanpat
 mov  r1, sp 
 bl   scanf
@@ -38,11 +38,11 @@ bl   printf
 ldr  r1, [sp]
 cmp  r1, #0
 bne  interact
-beq  math
+beq  math      @proceed to simple math if 0
 
 @ Math test
 math:
-sub  sp, sp, #4
+sub  sp, sp, #4  @ allocate stack space
 
 @ Display prompt for math
 ldr  r0, =math_p
@@ -69,8 +69,8 @@ ldr  r2, [sp]
 
 @ Do math
 add  r3, r1, r2
-sub  r4, r1, r2
-mul  r5, r1, r2
+sub  r4, r1, r2     @ these values are in r4-r6 to
+mul  r5, r1, r2     @ save them from printf
 sdiv r6, r1, r2
 
 @print math results
@@ -98,5 +98,5 @@ bl   printf
 @ Close out program
 add  sp, sp, #+12
 mov  r0, #1
-pop  {pc}
+pop  {r4-r6, pc}    @ put everything back
 
