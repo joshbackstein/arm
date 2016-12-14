@@ -1,4 +1,5 @@
-.include "../utilities.s"
+@ powerOfTwo function is defined in ../utilities.s
+@ it is included in the .o file when linked.
 .data
 .balign 4
 testOne: .asciz "Is 368 a power of two: "
