@@ -71,6 +71,7 @@ ldr r0, =struct
 bl StoreAgeInStruct
 bl printS
 @ Check the age range.
+checkAge:
 ldr r0, =struct
 ldr r0, [r0, #age]
 cmp r0, #18
