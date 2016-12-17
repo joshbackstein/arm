@@ -31,5 +31,8 @@ thumb: thumb.s
 array: array.s
 	gcc -o array array.s
 
+malloc: malloc.s
+	gcc -o malloc malloc.s
+
 clean:
-	rm -f powerOfTwo addSixNumbers array thumb intToLong *.o
+	rm -f powerOfTwo addSixNumbers array malloc thumb intToLong *.o

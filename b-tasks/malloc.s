@@ -9,25 +9,43 @@ string: .asciz "This is in the heap!\n"
 .text
 .global main
 main:
-push {lr}
-mov r0, #strLen
-bl malloc
-ldr r2, =mPtr
-str r0, [r2]
-mov r1, r0
-ldr r0, =string
-mov r2, #0
-bl LoadString
-ldr r0, =mPtr
-bl printf
-ldr r0, =mPtr
-pop {pc}
+  @ Save link register.
+  push {lr}
 
-LoadString: @args: r0 = data to load, r1 = location to load to
-ldrb r3, [r0, r2]
-strb r3, [r1, r2]
-cmp r3, #0
-moveq r2, #0
-bxeq lr @return
-add r2, r2, #1
-b LoadString
+  @ Grab the length of the string so we can use malloc to allocate the
+  @ correct amount of memory.
+  mov r0, #strLen
+  bl malloc
+
+  @ Store the pointer returned by malloc to mPtr.
+  ldr r2, =mPtr
+  str r0, [r2]
+
+  @ To load the string, we need to put the pointer to the string into r0
+  @ and the address to store the first character at into r1.
+  mov r1, r0
+  ldr r0, =string
+  mov r2, #0
+  bl LoadString
+
+  @ Display the string.
+  ldr r0, =mPtr
+  ldr r0, [r0]
+  bl printf
+
+  @ Go back to where we were before we called this function.
+  pop {pc}
+
+@ Load string into address byte by byte.
+@   Arguments:
+@     r0 = byte to store
+@     r1 = address to store to
+@     r2 = offset to add to r1 so we know where to put the character
+LoadString:
+  ldrb r3, [r0, r2]
+  strb r3, [r1, r2]
+  cmp r3, #0
+  moveq r2, #0
+  bxeq lr @return
+  add r2, r2, #1
+  b LoadString
