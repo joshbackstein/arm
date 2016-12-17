@@ -7,23 +7,29 @@ SOURCES = $(wildcard *.s)
 OBJECTS = $(SOURCES:.s=.o)
 
 power: powerOfTwo.o utilities.o
-	ld -o powerOfTwo powerOfTwo.o ../utilities.o
+	ld -o powerOfTwo powerOfTwo.o utilities.o
 
-utilities.o:
-	as -c ../utilities.s -o ../utilities.o
+add: addSixNumbers.o utilities.o
+	ld -o addSixNumbers addSixNumbers.o utilities.o
 
-powerOfTwo.o:
+utilities.o: ../utilities.s
+	as -c ../utilities.s -o utilities.o
+
+powerOfTwo.o: powerOfTwo.s
 	as -c powerOfTwo.s -o powerOfTwo.o
 
-long:
+addSixNumbers.o: addSixNumbers.s
+	as -c addSixNumbers.s -o addSixNumbers.o
+
+long: intToLong.s
 	gcc -o intToLong intToLong.s
 
-thumb:
+thumb: thumb.s
 	as -c thumb.s -o thumb.o
 	ld -o thumb thumb.o
 
-array:
+array: array.s
 	gcc -o array array.s
 
 clean:
-	rm -f powerOfTwo array thumb intToLong *.o
+	rm -f powerOfTwo addSixNumbers array thumb intToLong *.o
