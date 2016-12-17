@@ -17,7 +17,7 @@
 * ~~Get input from the console using scanf~~
   * Under the `interact` label in `d_prof.s`.
 * ~~Execute a system call~~
-  * In `utilities.s` uner the `printString` label.
+  * In root folder in `utilities.s` under the `printString` label.
 * ~~Create static data in memory~~
   * At the top of `d_prof.s`.
 * ~~Create a global variable~~
@@ -71,11 +71,11 @@
 * ~~Allocate heap memory using malloc~~
   * In `malloc.s`.
 * ~~Create a function that takes more than 4 arguments~~
-  * In `addSixNumbers.s` and `utilities.s` under the `addSixNumbers` label.
+  * In `addSixNumbers.s` and root folder in `utilities.s` under the `addSixNumbers` label.
 * ~~Create a function with floating point arguments~~
   * In `https://github.com/joshbackstein/cuddly-spoon/blob/master/pixelConvert.s` under the `getLuminance` label.
 * ~~Use a system call to output data to the console~~
-  * In `utilities.s` under the `printString` label.
+  * In root folder in `utilities.s` under the `printString` label.
 * ~~Use a system call to get input from the console~~
   * In `https://github.com/joshbackstein/cuddly-spoon/blob/master/cs.s` under the `GetFilename` label.
 * ~~Write a simple program using only Thumb2 instructions~~
@@ -92,17 +92,17 @@
   * In `array.s`.
 * ~~Write the following utility functions (without C libs)~~
   * ~~Return whether an int is a power of 2 or not~~
-    * In `powerOfTwo.s` and `utilities.s` under the `powerOfTwo` label.
+    * In `powerOfTwo.s` and root folder in `utilities.s` under the `powerOfTwo` label.
   * ~~Use a system call to output text to console~~
-    * In `utilities.s` under the `printString` label.
+    * In root folder in `utilities.s` under the `printString` label.
   * ~~Use a system call to output an integer to console~~
-    * In `utilities.s` under the `printUInt` label.
+    * In root folder in `utilities.s` under the `printUInt` label.
 
 
 #### A Tasks - Incomplete
 
 * ~~Allocate heap memory using the brk system call~~
-  * In `utilities.s` under the `brk` label.
+  * In root folder in `utilities.s` under the `brk` label.
 * ~~Allocate heap memory using the mmap system call~~
   * In `https://github.com/joshbackstein/cuddly-spoon/blob/master/cs.s` under the `MapFileToMemory` label.
 * ~~Use system calls to output data to a file~~
@@ -112,7 +112,8 @@
 * Create a simple object using a struct and a set of functions
 * Create an object type that inherits from the first
 * Solve the vector code optimization problem
-* Optimize the power of 2 test function
+* ~~Optimize the power of 2 test function~~
+  * In `b-tasks` folder in `powerOfTwo.s` and root folder in `utilities.s` under the `powerOfTwo` label.
 * Create a select block
 * Do something with GPIO pins (LED for example)
 * Boot Pi into your own kernel that does something

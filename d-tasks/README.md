@@ -17,7 +17,7 @@
 * ~~Get input from the console using scanf~~
   * Under the `interact` label in `d_prof.s`.
 * ~~Execute a system call~~
-  * In `utilities.s` uner the `printString` label.
+  * In root folder in `utilities.s` under the `printString` label.
 * ~~Create static data in memory~~
   * At the top of `d_prof.s`.
 * ~~Create a global variable~~
