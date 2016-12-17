@@ -33,6 +33,14 @@ main:
   ldr r0, [r0]
   bl printf
 
+  @ Free the memory allocated by malloc.
+  ldr r0, =mPtr
+  ldr r0, [r0]
+  bl free
+
+  @ Put a 0 in r0 to indicate everything worked the way we wanted it to.
+  mov r0, #0
+
   @ Go back to where we were before we called this function.
   pop {pc}
 
