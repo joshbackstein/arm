@@ -18,6 +18,11 @@ heap_end: .word 0
 .global umod
 .global unbrk
 
+@ If one and only one bit is set and it is not the least
+@ significant bit, it is a power of 2.
+@ params:  r0 = int to check
+@ returns:  0 if it is not a power of 2
+@           1 if it is a power of 2
 powerOfTwo:
   mov r1, #1
   ror r1, r1, #1
